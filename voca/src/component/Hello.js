@@ -1,7 +1,12 @@
-import styles from "./Hello.module.css";
+export default function Hello() {
+  function showtText(e) {
+    console.log(e.target.value);
+  }
 
-const Hello = () => {
-  return <div className={styles.box}>Hello!!</div>;
-};
-
-export default Hello;
+  return (
+    <div>
+      <h1>Hello</h1>
+      <input type="text" onChange={showtText} />
+    </div>
+  );
+}
