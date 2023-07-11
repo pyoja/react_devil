@@ -1,14 +1,23 @@
-import { Link } from "react-router-dom";
 import dummy from "../db/data.json";
+import { useParams } from "react-router-dom";
 
-export default function DayList() {
+export default function Day() {
+  const { day } = useParams();
+  const wordList = dummy.words.filter((word) => word.day === Number(day));
+
   return (
-    <ul className="list_day">
-      {dummy.days.map((day) => (
-        <li key={day.id}>
-          <Link to={`/day/${day.day}`}>Day {day.day}</Link>
-        </li>
-      ))}
-    </ul>
+    <>
+      <h2>Day {day}</h2>
+      <table>
+        <tbody>
+          {wordList.map((word) => (
+            <tr key={word.id}>
+              <td>{word.eng}</td>
+              <td>{word.kor}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
   );
 }

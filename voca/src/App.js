@@ -1,12 +1,12 @@
 import Day from "./component/Day";
 import DayList from "./component/DayList";
 import Header from "./component/Header";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import EmptyPage from "./component/EmptyPage";
 
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Header />
         <Routes>
@@ -15,7 +15,7 @@ function App() {
           <Route element={<EmptyPage />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
